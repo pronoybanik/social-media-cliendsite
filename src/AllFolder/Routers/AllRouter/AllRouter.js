@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import About from "../../component/About/About";
+import AddPost from "../../component/AddPost/AddPost";
 import Home from "../../component/Home/Home";
 import Login from "../../component/Login/Login";
 import MediaPage from "../../component/MediaPage/MediaPage";
@@ -17,6 +18,10 @@ const allRouter = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: '/addPost',
+                element: <AddPost></AddPost>
             },
             {
                 path: '/login',

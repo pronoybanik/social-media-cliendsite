@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from '../Modal/Modal';
 
-const AboutCard = ({ aboutData }) => {
+const AboutCard = ({ aboutData, refetch }) => {
 
     const { name, email, address, university } = aboutData;
     console.log(aboutData);
+    const [mobileBooking, setMobileBooking] = useState([]);
 
     return (
         <div className='flex justify-center my-6 font-serif'>
@@ -14,9 +16,16 @@ const AboutCard = ({ aboutData }) => {
                     <p>ADDRESS: {address}</p>
                     <p>UNIVERSITY: {university}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary btn-sm">Edit</button>
+                        <label htmlFor="about-modal"
+                            onClick={() => setMobileBooking(aboutData)}
+                            className="btn btn-primary btn-sm">Edit</label>
+
                     </div>
                 </div>
+                <Modal
+                    mobileProps={mobileBooking}
+                    setMobileBooking={setMobileBooking} 
+                ></Modal>
             </div>
         </div>
     );
